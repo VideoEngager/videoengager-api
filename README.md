@@ -20,14 +20,14 @@
 
 VideoEngager Javascript SDK - Javascript SDK for VideoEngager API
 - API version: 1.0.0
-- Package version: 1.0.0-next
+- Package version: 1.0.0
 
 The VideoEngager Javascript SDK implements the client-side libraries used by
 applications using VideoEngager API services. This SDK is distributed via:
 
-- [CDN](https://unpkg.com/videoengager-js-sdk@1.0.0-next/dist/browser/main.js)
+- [CDN](https://unpkg.com/videoengager-js-sdk@1.0.0/dist/browser/main.js)
 - [npm package](https://www.npmjs.com/package/videoengager-js-sdk)
-- [CDN Module](https://unpkg.com/videoengager-js-sdk@1.0.0-next/dist/esm/index.js)
+- [CDN Module](https://unpkg.com/videoengager-js-sdk@1.0.0/dist/esm/index.js)
 
 ---
 
@@ -54,10 +54,10 @@ npm install videoengager-js-sdk@latest --save
 
 ### Browser
 
-The package also works in the browser environment. The client is exposed as `SmartVideoSdk` global variable when using from `https://unpkg.com/videoengager-js-sdk@1.0.0-next/dist/browser/main.js` file.
+The package also works in the browser environment. The client is exposed as `SmartVideoSdk` global variable when using from `https://unpkg.com/videoengager-js-sdk@1.0.0/dist/browser/main.js` file.
 
 ```html
-<script src="https://unpkg.com/videoengager-js-sdk@1.0.0-next/dist/browser/main.js"></script>
+<script src="https://unpkg.com/videoengager-js-sdk@1.0.0/dist/browser/main.js"></script>
 <script>
   var smartVideoSdk = SmartVideoSdk
 </script>
@@ -67,7 +67,7 @@ The package also works in the browser environment. The client is exposed as `Sma
 
 ```html
 <script type="module">
-  import * as smartVideoSdk from 'https://unpkg.com/videoengager-js-sdk@1.0.0-next/dist/esm/index.js';
+  import * as smartVideoSdk from 'https://unpkg.com/videoengager-js-sdk@1.0.0/dist/esm/index.js';
 </script>
 ```
 

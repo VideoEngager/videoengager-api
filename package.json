@@ -1,6 +1,6 @@
 {
   "name": "videoengager-js-sdk",
-  "version": "1.0.0-next",
+  "version": "1.0.0",
   "description": "OpenAPI client for videoengager-js-sdk",
   "author": "OpenAPI-Generator Contributors",
   "repository": {
