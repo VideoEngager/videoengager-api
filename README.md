@@ -20,14 +20,14 @@
 
 VideoEngager Javascript SDK - Javascript SDK for VideoEngager API
 - API version: 1.0.0
-- Package version: 1.0.0
+- Package version: 1.1.0
 
 The VideoEngager Javascript SDK implements the client-side libraries used by
 applications using VideoEngager API services. This SDK is distributed via:
 
-- [CDN](https://unpkg.com/videoengager-js-sdk@1.0.0/dist/browser/main.js)
+- [CDN](https://unpkg.com/videoengager-js-sdk@1.1.0/dist/browser/main.js)
 - [npm package](https://www.npmjs.com/package/videoengager-js-sdk)
-- [CDN Module](https://unpkg.com/videoengager-js-sdk@1.0.0/dist/esm/index.js)
+- [CDN Module](https://unpkg.com/videoengager-js-sdk@1.1.0/dist/esm/index.js)
 
 ---
 
@@ -54,10 +54,10 @@ npm install videoengager-js-sdk@latest --save
 
 ### Browser
 
-The package also works in the browser environment. The client is exposed as `SmartVideoSdk` global variable when using from `https://unpkg.com/videoengager-js-sdk@1.0.0/dist/browser/main.js` file.
+The package also works in the browser environment. The client is exposed as `SmartVideoSdk` global variable when using from `https://unpkg.com/videoengager-js-sdk@1.1.0/dist/browser/main.js` file.
 
 ```html
-<script src="https://unpkg.com/videoengager-js-sdk@1.0.0/dist/browser/main.js"></script>
+<script src="https://unpkg.com/videoengager-js-sdk@1.1.0/dist/browser/main.js"></script>
 <script>
   var smartVideoSdk = SmartVideoSdk
 </script>
@@ -67,7 +67,7 @@ The package also works in the browser environment. The client is exposed as `Sma
 
 ```html
 <script type="module">
-  import * as smartVideoSdk from 'https://unpkg.com/videoengager-js-sdk@1.0.0/dist/esm/index.js';
+  import * as smartVideoSdk from 'https://unpkg.com/videoengager-js-sdk@1.1.0/dist/esm/index.js';
 </script>
 ```
 
@@ -198,14 +198,14 @@ Notes.  *URL* is required, transferID is needed if you want to be able to deacti
 
 #### Parameters
 
-- **createCallbackRequest** (required) - TYPE:  [CreateCallbackRequest](#CreateCallbackRequest) - 
+- **requestBody** (required) - TYPE:  [{ [key: string]: string; }](#{ [key: string]: string; }) - 
 - **tenantId** (required) - TYPE:  [string](#string) - Tennant ID
   
 
 ```javascript
 
 const response = await smartVideoSDK.callbacks.createCallback({
-    createCallbackRequest,
+    requestBody,
     tenantId
 });
 
@@ -236,11 +236,14 @@ console.log(response.data); // response
     "meetingUrl" : "https://dev.videoengager.com/ve/k8DOH4",
     "duration" : 60,
     "phone" : "+971585194108",
-    "customerID" : "950be2a3-65b7-461e-8ba2-f8fb62c2d95a",
     "name" : "Mamoun H",
     "agentUrl" : "https://dev.videoengager.com/ve/iqTF6W",
     "email" : "maamoon@callback.com",
-    "scheduleId" : "82212b25-0976-2048-ed3e-6cb1fac47977"
+    "scheduleId" : "82212b25-0976-2048-ed3e-6cb1fac47977",
+    "customAttributes" : {
+      "additionalProp1" : "value1",
+      "additionalProp3" : "value2"
+    }
   },
   "emailSent" : true,
   "icsCalendarData" : "BEGIN:VCALENDAR VERSION:2.0 CALSCALE:GREGORIAN PRODID:adamgibbons/ics METHOD:REQUEST X-PUBLISHED-TTL:PT1H BEGIN:VEVENT UID:82212b25-0976-2048-ed3e-6cb1fac47977 SUMMARY:Video Meeting DTSTAMP:20230213T155700Z DTSTART:20230213T155900Z SEQUENCE:1 DESCRIPTION:Start your video meeting by opening URL in your browser URL:https://dev.videoengager.com/ve/k8DOH4 LOCATION:https://dev.videoengager.com/ve/k8DOH4 STATUS:CONFIRMED CREATED:20230213T155900Z ATTENDEE;RSVP=TRUE;ROLE=OPT-PARTICIPANT;PARTSTAT=ACCEPTED;CN=Mamoun unde fined:mailto:maamoon@callback.com DURATION:PT60M END:VEVENT END:VCALENDAR"
@@ -304,11 +307,14 @@ console.log(response.data); // response
     "meetingUrl" : "https://dev.videoengager.com/ve/k8DOH4",
     "duration" : 60,
     "phone" : "+971585194108",
-    "customerID" : "950be2a3-65b7-461e-8ba2-f8fb62c2d95a",
     "name" : "Mamoun H",
     "agentUrl" : "https://dev.videoengager.com/ve/iqTF6W",
     "email" : "maamoon@callback.com",
-    "scheduleId" : "82212b25-0976-2048-ed3e-6cb1fac47977"
+    "scheduleId" : "82212b25-0976-2048-ed3e-6cb1fac47977",
+    "customAttributes" : {
+      "additionalProp1" : "value1",
+      "additionalProp3" : "value2"
+    }
   },
   "emailSent" : true,
   "icsCalendarData" : "BEGIN:VCALENDAR VERSION:2.0 CALSCALE:GREGORIAN PRODID:adamgibbons/ics METHOD:REQUEST X-PUBLISHED-TTL:PT1H BEGIN:VEVENT UID:82212b25-0976-2048-ed3e-6cb1fac47977 SUMMARY:Video Meeting DTSTAMP:20230213T155700Z DTSTART:20230213T155900Z SEQUENCE:1 DESCRIPTION:Start your video meeting by opening URL in your browser URL:https://dev.videoengager.com/ve/k8DOH4 LOCATION:https://dev.videoengager.com/ve/k8DOH4 STATUS:CONFIRMED CREATED:20230213T155900Z ATTENDEE;RSVP=TRUE;ROLE=OPT-PARTICIPANT;PARTSTAT=ACCEPTED;CN=Mamoun unde fined:mailto:maamoon@callback.com DURATION:PT60M END:VEVENT END:VCALENDAR"
@@ -372,11 +378,14 @@ console.log(response.data); // response
     "meetingUrl" : "https://dev.videoengager.com/ve/k8DOH4",
     "duration" : 60,
     "phone" : "+971585194108",
-    "customerID" : "950be2a3-65b7-461e-8ba2-f8fb62c2d95a",
     "name" : "Mamoun H",
     "agentUrl" : "https://dev.videoengager.com/ve/iqTF6W",
     "email" : "maamoon@callback.com",
-    "scheduleId" : "82212b25-0976-2048-ed3e-6cb1fac47977"
+    "scheduleId" : "82212b25-0976-2048-ed3e-6cb1fac47977",
+    "customAttributes" : {
+      "additionalProp1" : "value1",
+      "additionalProp3" : "value2"
+    }
   },
   "emailSent" : true,
   "icsCalendarData" : "BEGIN:VCALENDAR VERSION:2.0 CALSCALE:GREGORIAN PRODID:adamgibbons/ics METHOD:REQUEST X-PUBLISHED-TTL:PT1H BEGIN:VEVENT UID:82212b25-0976-2048-ed3e-6cb1fac47977 SUMMARY:Video Meeting DTSTAMP:20230213T155700Z DTSTART:20230213T155900Z SEQUENCE:1 DESCRIPTION:Start your video meeting by opening URL in your browser URL:https://dev.videoengager.com/ve/k8DOH4 LOCATION:https://dev.videoengager.com/ve/k8DOH4 STATUS:CONFIRMED CREATED:20230213T155900Z ATTENDEE;RSVP=TRUE;ROLE=OPT-PARTICIPANT;PARTSTAT=ACCEPTED;CN=Mamoun unde fined:mailto:maamoon@callback.com DURATION:PT60M END:VEVENT END:VCALENDAR"
@@ -492,10 +501,10 @@ Returns a list of callbacks for specific tenant and period with Server Side Pagi
   
 - **preferedAgent** - TYPE:  [string](#string) - filter result by preferred agent
 - **orderBy** - TYPE:  [&#39;duration&#39; | &#39;created&#39; | &#39;date&#39; | &#39;canceled&#39;](#&#39;duration&#39; | &#39;created&#39; | &#39;date&#39; | &#39;canceled&#39;) - Order by (default is date)
-- **asc** - TYPE:  [0 | 1](#0 | 1) - Oder by ascending or descending
+- **asc** - TYPE:  [1 | -1](#1 | -1) - Order by ascending or descending
 - **pageSize** - TYPE:  [number](#number) - Page size
 - **page** - TYPE:  [number](#number) - Page number
-- **searchBy** - TYPE:  [&#39;visitor.name&#39; | &#39;visitor.email&#39; | &#39;conversationId&#39; | &#39;visitor.phone&#39; | &#39;visitor.customerID&#39;](#&#39;visitor.name&#39; | &#39;visitor.email&#39; | &#39;conversationId&#39; | &#39;visitor.phone&#39; | &#39;visitor.customerID&#39;) - Search by specific field (will search in all fields if not specified)
+- **searchBy** - TYPE:  [string](#string) - * Search by specific field (will search in all fields if not specified) &lt;br /&gt; * Allowed values: visitor.name, visitor.email, conversationId, visitor.phone, \&quot;customAttributes.*\&quot; * (where * is the name of the custom attribute) 
 - **searchString** - TYPE:  [string](#string) - Search string
 - **active** - TYPE:  [boolean](#boolean) - Filter by active or inactive
 - **queueId** - TYPE:  [string](#string) - Filter by queue
@@ -527,7 +536,7 @@ console.log(response.data); // response
 > Example Response:
 ```json 
 {
-  "asc" : 1,
+  "queueId" : "82212b25-0976-2048-ed3e-6cb1fac47977",
   "data" : [ {
     "genesys" : {
       "queueId" : "a1731678-13f6-4ab0-ac6d-f82813b7abee",
@@ -546,11 +555,14 @@ console.log(response.data); // response
       "meetingUrl" : "https://dev.videoengager.com/ve/k8DOH4",
       "duration" : 60,
       "phone" : "+971585194108",
-      "customerID" : "950be2a3-65b7-461e-8ba2-f8fb62c2d95a",
       "name" : "Mamoun H",
       "agentUrl" : "https://dev.videoengager.com/ve/iqTF6W",
       "email" : "maamoon@callback.com",
-      "scheduleId" : "82212b25-0976-2048-ed3e-6cb1fac47977"
+      "scheduleId" : "82212b25-0976-2048-ed3e-6cb1fac47977",
+      "customAttributes" : {
+        "additionalProp1" : "value1",
+        "additionalProp3" : "value2"
+      }
     },
     "emailSent" : true,
     "icsCalendarData" : "BEGIN:VCALENDAR VERSION:2.0 CALSCALE:GREGORIAN PRODID:adamgibbons/ics METHOD:REQUEST X-PUBLISHED-TTL:PT1H BEGIN:VEVENT UID:82212b25-0976-2048-ed3e-6cb1fac47977 SUMMARY:Video Meeting DTSTAMP:20230213T155700Z DTSTART:20230213T155900Z SEQUENCE:1 DESCRIPTION:Start your video meeting by opening URL in your browser URL:https://dev.videoengager.com/ve/k8DOH4 LOCATION:https://dev.videoengager.com/ve/k8DOH4 STATUS:CONFIRMED CREATED:20230213T155900Z ATTENDEE;RSVP=TRUE;ROLE=OPT-PARTICIPANT;PARTSTAT=ACCEPTED;CN=Mamoun unde fined:mailto:maamoon@callback.com DURATION:PT60M END:VEVENT END:VCALENDAR"
@@ -572,11 +584,14 @@ console.log(response.data); // response
       "meetingUrl" : "https://dev.videoengager.com/ve/k8DOH4",
       "duration" : 60,
       "phone" : "+971585194108",
-      "customerID" : "950be2a3-65b7-461e-8ba2-f8fb62c2d95a",
       "name" : "Mamoun H",
       "agentUrl" : "https://dev.videoengager.com/ve/iqTF6W",
       "email" : "maamoon@callback.com",
-      "scheduleId" : "82212b25-0976-2048-ed3e-6cb1fac47977"
+      "scheduleId" : "82212b25-0976-2048-ed3e-6cb1fac47977",
+      "customAttributes" : {
+        "additionalProp1" : "value1",
+        "additionalProp3" : "value2"
+      }
     },
     "emailSent" : true,
     "icsCalendarData" : "BEGIN:VCALENDAR VERSION:2.0 CALSCALE:GREGORIAN PRODID:adamgibbons/ics METHOD:REQUEST X-PUBLISHED-TTL:PT1H BEGIN:VEVENT UID:82212b25-0976-2048-ed3e-6cb1fac47977 SUMMARY:Video Meeting DTSTAMP:20230213T155700Z DTSTART:20230213T155900Z SEQUENCE:1 DESCRIPTION:Start your video meeting by opening URL in your browser URL:https://dev.videoengager.com/ve/k8DOH4 LOCATION:https://dev.videoengager.com/ve/k8DOH4 STATUS:CONFIRMED CREATED:20230213T155900Z ATTENDEE;RSVP=TRUE;ROLE=OPT-PARTICIPANT;PARTSTAT=ACCEPTED;CN=Mamoun unde fined:mailto:maamoon@callback.com DURATION:PT60M END:VEVENT END:VCALENDAR"
@@ -598,11 +613,14 @@ console.log(response.data); // response
       "meetingUrl" : "https://dev.videoengager.com/ve/k8DOH4",
       "duration" : 60,
       "phone" : "+971585194108",
-      "customerID" : "950be2a3-65b7-461e-8ba2-f8fb62c2d95a",
       "name" : "Mamoun H",
       "agentUrl" : "https://dev.videoengager.com/ve/iqTF6W",
       "email" : "maamoon@callback.com",
-      "scheduleId" : "82212b25-0976-2048-ed3e-6cb1fac47977"
+      "scheduleId" : "82212b25-0976-2048-ed3e-6cb1fac47977",
+      "customAttributes" : {
+        "additionalProp1" : "value1",
+        "additionalProp3" : "value2"
+      }
     },
     "emailSent" : true,
     "icsCalendarData" : "BEGIN:VCALENDAR VERSION:2.0 CALSCALE:GREGORIAN PRODID:adamgibbons/ics METHOD:REQUEST X-PUBLISHED-TTL:PT1H BEGIN:VEVENT UID:82212b25-0976-2048-ed3e-6cb1fac47977 SUMMARY:Video Meeting DTSTAMP:20230213T155700Z DTSTART:20230213T155900Z SEQUENCE:1 DESCRIPTION:Start your video meeting by opening URL in your browser URL:https://dev.videoengager.com/ve/k8DOH4 LOCATION:https://dev.videoengager.com/ve/k8DOH4 STATUS:CONFIRMED CREATED:20230213T155900Z ATTENDEE;RSVP=TRUE;ROLE=OPT-PARTICIPANT;PARTSTAT=ACCEPTED;CN=Mamoun unde fined:mailto:maamoon@callback.com DURATION:PT60M END:VEVENT END:VCALENDAR"
@@ -624,11 +642,14 @@ console.log(response.data); // response
       "meetingUrl" : "https://dev.videoengager.com/ve/k8DOH4",
       "duration" : 60,
       "phone" : "+971585194108",
-      "customerID" : "950be2a3-65b7-461e-8ba2-f8fb62c2d95a",
       "name" : "Mamoun H",
       "agentUrl" : "https://dev.videoengager.com/ve/iqTF6W",
       "email" : "maamoon@callback.com",
-      "scheduleId" : "82212b25-0976-2048-ed3e-6cb1fac47977"
+      "scheduleId" : "82212b25-0976-2048-ed3e-6cb1fac47977",
+      "customAttributes" : {
+        "additionalProp1" : "value1",
+        "additionalProp3" : "value2"
+      }
     },
     "emailSent" : true,
     "icsCalendarData" : "BEGIN:VCALENDAR VERSION:2.0 CALSCALE:GREGORIAN PRODID:adamgibbons/ics METHOD:REQUEST X-PUBLISHED-TTL:PT1H BEGIN:VEVENT UID:82212b25-0976-2048-ed3e-6cb1fac47977 SUMMARY:Video Meeting DTSTAMP:20230213T155700Z DTSTART:20230213T155900Z SEQUENCE:1 DESCRIPTION:Start your video meeting by opening URL in your browser URL:https://dev.videoengager.com/ve/k8DOH4 LOCATION:https://dev.videoengager.com/ve/k8DOH4 STATUS:CONFIRMED CREATED:20230213T155900Z ATTENDEE;RSVP=TRUE;ROLE=OPT-PARTICIPANT;PARTSTAT=ACCEPTED;CN=Mamoun unde fined:mailto:maamoon@callback.com DURATION:PT60M END:VEVENT END:VCALENDAR"
@@ -650,18 +671,28 @@ console.log(response.data); // response
       "meetingUrl" : "https://dev.videoengager.com/ve/k8DOH4",
       "duration" : 60,
       "phone" : "+971585194108",
-      "customerID" : "950be2a3-65b7-461e-8ba2-f8fb62c2d95a",
       "name" : "Mamoun H",
       "agentUrl" : "https://dev.videoengager.com/ve/iqTF6W",
       "email" : "maamoon@callback.com",
-      "scheduleId" : "82212b25-0976-2048-ed3e-6cb1fac47977"
+      "scheduleId" : "82212b25-0976-2048-ed3e-6cb1fac47977",
+      "customAttributes" : {
+        "additionalProp1" : "value1",
+        "additionalProp3" : "value2"
+      }
     },
     "emailSent" : true,
     "icsCalendarData" : "BEGIN:VCALENDAR VERSION:2.0 CALSCALE:GREGORIAN PRODID:adamgibbons/ics METHOD:REQUEST X-PUBLISHED-TTL:PT1H BEGIN:VEVENT UID:82212b25-0976-2048-ed3e-6cb1fac47977 SUMMARY:Video Meeting DTSTAMP:20230213T155700Z DTSTART:20230213T155900Z SEQUENCE:1 DESCRIPTION:Start your video meeting by opening URL in your browser URL:https://dev.videoengager.com/ve/k8DOH4 LOCATION:https://dev.videoengager.com/ve/k8DOH4 STATUS:CONFIRMED CREATED:20230213T155900Z ATTENDEE;RSVP=TRUE;ROLE=OPT-PARTICIPANT;PARTSTAT=ACCEPTED;CN=Mamoun unde fined:mailto:maamoon@callback.com DURATION:PT60M END:VEVENT END:VCALENDAR"
   } ],
+  "preferedAgent" : "82212b25-0976-2048-ed3e-6cb1fac47977",
   "count" : 52,
+  "searchBy" : "customAttributes.customID",
   "pageSize" : 100,
   "orderBy" : "date",
+  "active" : true,
+  "asc" : 1,
+  "searchString" : "asdasd",
+  "from" : "2023-02-13T15:59:22.684Z",
+  "to" : "2023-02-13T15:59:22.684Z",
   "page" : 1
 }
 ```
@@ -723,11 +754,14 @@ console.log(response.data); // response
     "meetingUrl" : "https://dev.videoengager.com/ve/k8DOH4",
     "duration" : 60,
     "phone" : "+971585194108",
-    "customerID" : "950be2a3-65b7-461e-8ba2-f8fb62c2d95a",
     "name" : "Mamoun H",
     "agentUrl" : "https://dev.videoengager.com/ve/iqTF6W",
     "email" : "maamoon@callback.com",
-    "scheduleId" : "82212b25-0976-2048-ed3e-6cb1fac47977"
+    "scheduleId" : "82212b25-0976-2048-ed3e-6cb1fac47977",
+    "customAttributes" : {
+      "additionalProp1" : "value1",
+      "additionalProp3" : "value2"
+    }
   },
   "emailSent" : true,
   "icsCalendarData" : "BEGIN:VCALENDAR VERSION:2.0 CALSCALE:GREGORIAN PRODID:adamgibbons/ics METHOD:REQUEST X-PUBLISHED-TTL:PT1H BEGIN:VEVENT UID:82212b25-0976-2048-ed3e-6cb1fac47977 SUMMARY:Video Meeting DTSTAMP:20230213T155700Z DTSTART:20230213T155900Z SEQUENCE:1 DESCRIPTION:Start your video meeting by opening URL in your browser URL:https://dev.videoengager.com/ve/k8DOH4 LOCATION:https://dev.videoengager.com/ve/k8DOH4 STATUS:CONFIRMED CREATED:20230213T155900Z ATTENDEE;RSVP=TRUE;ROLE=OPT-PARTICIPANT;PARTSTAT=ACCEPTED;CN=Mamoun unde fined:mailto:maamoon@callback.com DURATION:PT60M END:VEVENT END:VCALENDAR"
@@ -793,11 +827,14 @@ console.log(response.data); // response
     "meetingUrl" : "https://dev.videoengager.com/ve/k8DOH4",
     "duration" : 60,
     "phone" : "+971585194108",
-    "customerID" : "950be2a3-65b7-461e-8ba2-f8fb62c2d95a",
     "name" : "Mamoun H",
     "agentUrl" : "https://dev.videoengager.com/ve/iqTF6W",
     "email" : "maamoon@callback.com",
-    "scheduleId" : "82212b25-0976-2048-ed3e-6cb1fac47977"
+    "scheduleId" : "82212b25-0976-2048-ed3e-6cb1fac47977",
+    "customAttributes" : {
+      "additionalProp1" : "value1",
+      "additionalProp3" : "value2"
+    }
   },
   "emailSent" : true,
   "icsCalendarData" : "BEGIN:VCALENDAR VERSION:2.0 CALSCALE:GREGORIAN PRODID:adamgibbons/ics METHOD:REQUEST X-PUBLISHED-TTL:PT1H BEGIN:VEVENT UID:82212b25-0976-2048-ed3e-6cb1fac47977 SUMMARY:Video Meeting DTSTAMP:20230213T155700Z DTSTART:20230213T155900Z SEQUENCE:1 DESCRIPTION:Start your video meeting by opening URL in your browser URL:https://dev.videoengager.com/ve/k8DOH4 LOCATION:https://dev.videoengager.com/ve/k8DOH4 STATUS:CONFIRMED CREATED:20230213T155900Z ATTENDEE;RSVP=TRUE;ROLE=OPT-PARTICIPANT;PARTSTAT=ACCEPTED;CN=Mamoun unde fined:mailto:maamoon@callback.com DURATION:PT60M END:VEVENT END:VCALENDAR"
@@ -897,7 +934,6 @@ console.log(response.data); // response
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 | **autoAnswer** | **boolean** |  | [default to undefined] |
-| **customerID** | **string** |  | [optional] [default to undefined] |
 | **name** | **string** | visitor Name | [default to undefined] |
 | **email** | **string** | visitor Email | [default to undefined] |
 | **phone** | **string** | visitor Phone | [default to undefined] |
@@ -909,6 +945,7 @@ console.log(response.data); // response
 | **created** | **string** | Created At | [default to undefined] |
 | **duration** | **number** | Duration of callback in minutes | [default to undefined] |
 | **scheduleId** | **string** | scheduleId | [default to undefined] |
+| **customAttributes** | **{ [key: string]: string; }** | Custom Attributes | [optional] [default to undefined] |
 | **active** | **boolean** | wether this callback is active or canceled | [default to undefined] |
 
 </details>
@@ -946,11 +983,18 @@ console.log(response.data); // response
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 | **data** | [**Array&lt;CallbackObject&gt;**](#Array&lt;CallbackObject&gt;) |  | [optional] [default to undefined] |
+| **from** | **string** |  | [optional] [default to undefined] |
+| **to** | **string** |  | [optional] [default to undefined] |
 | **count** | **number** |  | [optional] [default to undefined] |
 | **page** | **number** |  | [optional] [default to undefined] |
 | **pageSize** | **number** |  | [optional] [default to undefined] |
 | **orderBy** | **string** |  | [optional] [default to undefined] |
 | **asc** | **number** |  | [optional] [default to undefined] |
+| **preferedAgent** | **string** |  | [optional] [default to undefined] |
+| **active** | **boolean** |  | [optional] [default to undefined] |
+| **queueId** | **string** |  | [optional] [default to undefined] |
+| **searchBy** | **string** |  | [optional] [default to undefined] |
+| **searchString** | **string** |  | [optional] [default to undefined] |
 
 </details>
 
@@ -972,7 +1016,6 @@ console.log(response.data); // response
 | **_desired_time** | **string** |  | [default to undefined] |
 | **veSubject** | **string** |  | [optional] [default to undefined] |
 | **customer_subject** | **string** |  | [optional] [default to undefined] |
-| **customerID** | **string** | used to add custom customer ID Field to the callback | [optional] [default to undefined] |
 | **scriptId** | **string** | used to add script ID  to the callback (if not provided, default script in settings will be used) | [optional] [default to undefined] |
 | **queueId** | **string** | used to add queue ID  to the callback (if not provided, default script in settings will be used) | [optional] [default to undefined] |
 

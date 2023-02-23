@@ -27,12 +27,6 @@ export interface CallbackObjectVideoengager {
      */
     'autoAnswer': boolean;
     /**
-     * 
-     * @type {string}
-     * @memberof CallbackObjectVideoengager
-     */
-    'customerID'?: string;
-    /**
      * visitor Name
      * @type {string}
      * @memberof CallbackObjectVideoengager
@@ -98,6 +92,12 @@ export interface CallbackObjectVideoengager {
      * @memberof CallbackObjectVideoengager
      */
     'scheduleId': string;
+    /**
+     * Custom Attributes
+     * @type {{ [key: string]: string; }}
+     * @memberof CallbackObjectVideoengager
+     */
+    'customAttributes'?: { [key: string]: string; };
     /**
      * wether this callback is active or canceled
      * @type {boolean}

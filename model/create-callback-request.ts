@@ -20,6 +20,8 @@
  * @interface CreateCallbackRequest
  */
 export interface CreateCallbackRequest {
+    [key: string]: string | any;
+
     /**
      * used to add agent ID preferred routing, MUST exist if callbackOwned is True;
      * @type {string}
@@ -80,12 +82,6 @@ export interface CreateCallbackRequest {
      * @memberof CreateCallbackRequest
      */
     'customer_subject'?: string;
-    /**
-     * used to add custom customer ID Field to the callback
-     * @type {string}
-     * @memberof CreateCallbackRequest
-     */
-    'customerID'?: string;
     /**
      * used to add script ID  to the callback (if not provided, default script in settings will be used)
      * @type {string}

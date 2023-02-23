@@ -42,14 +42,14 @@ export const CallbacksApiAxiosParamCreator = function (configuration?: Configura
         /**
          * Notes.  *URL* is required, transferID is needed if you want to be able to deactive it later, pin will not be applied if brokerage settings doesn\'t allow it, if code is not provided, code automatically will be generated.
          * @summary Create New Genesys Callback
-         * @param {CreateCallbackRequest} createCallbackRequest 
+         * @param {{ [key: string]: string; }} requestBody 
          * @param {string} tenantId Tennant ID
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createCallback: async (createCallbackRequest: CreateCallbackRequest, tenantId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'createCallbackRequest' is not null or undefined
-            assertParamExists('createCallback', 'createCallbackRequest', createCallbackRequest)
+        createCallback: async (requestBody: { [key: string]: string; }, tenantId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'requestBody' is not null or undefined
+            assertParamExists('createCallback', 'requestBody', requestBody)
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('createCallback', 'tenantId', tenantId)
             const localVarPath = `/api/genesys/callback/tenant/{tenantId}`
@@ -79,7 +79,7 @@ export const CallbacksApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(createCallbackRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(requestBody, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -272,17 +272,17 @@ export const CallbacksApiAxiosParamCreator = function (configuration?: Configura
          * @param {string} to End of the period
          * @param {string} [preferedAgent] filter result by preferred agent
          * @param {'duration' | 'created' | 'date' | 'canceled'} [orderBy] Order by (default is date)
-         * @param {0 | 1} [asc] Oder by ascending or descending
+         * @param {1 | -1} [asc] Order by ascending or descending
          * @param {number} [pageSize] Page size
          * @param {number} [page] Page number
-         * @param {'visitor.name' | 'visitor.email' | 'conversationId' | 'visitor.phone' | 'visitor.customerID'} [searchBy] Search by specific field (will search in all fields if not specified)
+         * @param {string} [searchBy] * Search by specific field (will search in all fields if not specified) &lt;br /&gt; * Allowed values: visitor.name, visitor.email, conversationId, visitor.phone, \&quot;customAttributes.*\&quot; * (where * is the name of the custom attribute) 
          * @param {string} [searchString] Search string
          * @param {boolean} [active] Filter by active or inactive
          * @param {string} [queueId] Filter by queue
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listCallbacks: async (tenantId: string, from: string, to: string, preferedAgent?: string, orderBy?: 'duration' | 'created' | 'date' | 'canceled', asc?: 0 | 1, pageSize?: number, page?: number, searchBy?: 'visitor.name' | 'visitor.email' | 'conversationId' | 'visitor.phone' | 'visitor.customerID', searchString?: string, active?: boolean, queueId?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listCallbacks: async (tenantId: string, from: string, to: string, preferedAgent?: string, orderBy?: 'duration' | 'created' | 'date' | 'canceled', asc?: 1 | -1, pageSize?: number, page?: number, searchBy?: string, searchString?: string, active?: boolean, queueId?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tenantId' is not null or undefined
             assertParamExists('listCallbacks', 'tenantId', tenantId)
             // verify required parameter 'from' is not null or undefined
@@ -467,13 +467,13 @@ export const CallbacksApiFp = function(configuration?: Configuration) {
         /**
          * Notes.  *URL* is required, transferID is needed if you want to be able to deactive it later, pin will not be applied if brokerage settings doesn\'t allow it, if code is not provided, code automatically will be generated.
          * @summary Create New Genesys Callback
-         * @param {CreateCallbackRequest} createCallbackRequest 
+         * @param {{ [key: string]: string; }} requestBody 
          * @param {string} tenantId Tennant ID
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createCallback(createCallbackRequest: CreateCallbackRequest, tenantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CallbackObject>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createCallback(createCallbackRequest, tenantId, options);
+        async createCallback(requestBody: { [key: string]: string; }, tenantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CallbackObject>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createCallback(requestBody, tenantId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -532,17 +532,17 @@ export const CallbacksApiFp = function(configuration?: Configuration) {
          * @param {string} to End of the period
          * @param {string} [preferedAgent] filter result by preferred agent
          * @param {'duration' | 'created' | 'date' | 'canceled'} [orderBy] Order by (default is date)
-         * @param {0 | 1} [asc] Oder by ascending or descending
+         * @param {1 | -1} [asc] Order by ascending or descending
          * @param {number} [pageSize] Page size
          * @param {number} [page] Page number
-         * @param {'visitor.name' | 'visitor.email' | 'conversationId' | 'visitor.phone' | 'visitor.customerID'} [searchBy] Search by specific field (will search in all fields if not specified)
+         * @param {string} [searchBy] * Search by specific field (will search in all fields if not specified) &lt;br /&gt; * Allowed values: visitor.name, visitor.email, conversationId, visitor.phone, \&quot;customAttributes.*\&quot; * (where * is the name of the custom attribute) 
          * @param {string} [searchString] Search string
          * @param {boolean} [active] Filter by active or inactive
          * @param {string} [queueId] Filter by queue
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listCallbacks(tenantId: string, from: string, to: string, preferedAgent?: string, orderBy?: 'duration' | 'created' | 'date' | 'canceled', asc?: 0 | 1, pageSize?: number, page?: number, searchBy?: 'visitor.name' | 'visitor.email' | 'conversationId' | 'visitor.phone' | 'visitor.customerID', searchString?: string, active?: boolean, queueId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CallbacksList>> {
+        async listCallbacks(tenantId: string, from: string, to: string, preferedAgent?: string, orderBy?: 'duration' | 'created' | 'date' | 'canceled', asc?: 1 | -1, pageSize?: number, page?: number, searchBy?: string, searchString?: string, active?: boolean, queueId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CallbacksList>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listCallbacks(tenantId, from, to, preferedAgent, orderBy, asc, pageSize, page, searchBy, searchString, active, queueId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -589,7 +589,7 @@ export const CallbacksApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         createCallback(requestParameters: CallbacksApiCreateCallbackRequest, options?: AxiosRequestConfig): AxiosPromise<CallbackObject> {
-            return localVarFp.createCallback(requestParameters.createCallbackRequest, requestParameters.tenantId, options).then((request) => request(axios, basePath));
+            return localVarFp.createCallback(requestParameters.requestBody, requestParameters.tenantId, options).then((request) => request(axios, basePath));
         },
         /**
          * used to deactive remove callback by conversation ID
@@ -752,10 +752,10 @@ export interface CallbacksApiInterface {
 export interface CallbacksApiCreateCallbackRequest {
     /**
      * 
-     * @type {CreateCallbackRequest}
+     * @type {{ [key: string]: string; }}
      * @memberof CallbacksApiCreateCallback
      */
-    readonly createCallbackRequest: CreateCallbackRequest
+    readonly requestBody: { [key: string]: string; }
 
     /**
      * Tennant ID
@@ -891,11 +891,11 @@ export interface CallbacksApiListCallbacksRequest {
     readonly orderBy?: 'duration' | 'created' | 'date' | 'canceled'
 
     /**
-     * Oder by ascending or descending
-     * @type {0 | 1}
+     * Order by ascending or descending
+     * @type {1 | -1}
      * @memberof CallbacksApiListCallbacks
      */
-    readonly asc?: 0 | 1
+    readonly asc?: 1 | -1
 
     /**
      * Page size
@@ -912,11 +912,11 @@ export interface CallbacksApiListCallbacksRequest {
     readonly page?: number
 
     /**
-     * Search by specific field (will search in all fields if not specified)
-     * @type {'visitor.name' | 'visitor.email' | 'conversationId' | 'visitor.phone' | 'visitor.customerID'}
+     * * Search by specific field (will search in all fields if not specified) &lt;br /&gt; * Allowed values: visitor.name, visitor.email, conversationId, visitor.phone, \&quot;customAttributes.*\&quot; * (where * is the name of the custom attribute) 
+     * @type {string}
      * @memberof CallbacksApiListCallbacks
      */
-    readonly searchBy?: 'visitor.name' | 'visitor.email' | 'conversationId' | 'visitor.phone' | 'visitor.customerID'
+    readonly searchBy?: string
 
     /**
      * Search string
@@ -1005,7 +1005,7 @@ export class CallbacksApi extends BaseAPI implements CallbacksApiInterface {
      * @memberof CallbacksApi
      */
     public createCallback(requestParameters: CallbacksApiCreateCallbackRequest, options?: AxiosRequestConfig) {
-        return CallbacksApiFp(this.configuration).createCallback(requestParameters.createCallbackRequest, requestParameters.tenantId, options).then((request) => request(this.axios, this.basePath));
+        return CallbacksApiFp(this.configuration).createCallback(requestParameters.requestBody, requestParameters.tenantId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

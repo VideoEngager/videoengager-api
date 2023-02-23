@@ -31,6 +31,18 @@ export interface CallbacksList {
     'data'?: Array<CallbackObject>;
     /**
      * 
+     * @type {string}
+     * @memberof CallbacksList
+     */
+    'from'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CallbacksList
+     */
+    'to'?: string;
+    /**
+     * 
      * @type {number}
      * @memberof CallbacksList
      */
@@ -59,5 +71,35 @@ export interface CallbacksList {
      * @memberof CallbacksList
      */
     'asc'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof CallbacksList
+     */
+    'preferedAgent'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CallbacksList
+     */
+    'active'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof CallbacksList
+     */
+    'queueId'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CallbacksList
+     */
+    'searchBy'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CallbacksList
+     */
+    'searchString'?: string;
 }
 
